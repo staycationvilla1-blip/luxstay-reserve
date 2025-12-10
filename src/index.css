@@ -16,8 +16,8 @@
     --popover: 45 30% 97%;
     --popover-foreground: 30 10% 15%;
 
-    /* Rich Gold from Logo */
-    --primary: 38 55% 60%;
+    /* Rich Gold from Logo - Enhanced */
+    --primary: 42 70% 55%;
     --primary-foreground: 30 10% 10%;
 
     /* Warm Cream */
@@ -34,31 +34,36 @@
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 38 30% 85%;
-    --input: 38 30% 85%;
-    --ring: 38 55% 60%;
+    --border: 40 35% 88%;
+    --input: 40 35% 88%;
+    --ring: 42 70% 55%;
 
     --radius: 0.5rem;
 
-    /* Custom Maison Luxe tokens */
-    --gold: 38 55% 60%;
-    --gold-light: 40 50% 75%;
-    --gold-dark: 35 60% 45%;
+    /* Custom Maison Luxe tokens - Enhanced Gold Palette */
+    --gold: 42 70% 55%;
+    --gold-light: 45 65% 72%;
+    --gold-lighter: 48 60% 82%;
+    --gold-dark: 38 75% 42%;
+    --gold-glow: 45 80% 65%;
     --charcoal: 30 10% 15%;
     --cream: 45 30% 97%;
     --forest: 160 35% 25%;
     --forest-light: 155 25% 35%;
     --ivory: 45 20% 96%;
 
-    /* Gradients */
-    --gradient-gold: linear-gradient(135deg, hsl(40 50% 75%), hsl(38 55% 60%), hsl(35 60% 45%));
+    /* Gradients - Enhanced */
+    --gradient-gold: linear-gradient(135deg, hsl(48 60% 82%), hsl(45 65% 72%), hsl(42 70% 55%), hsl(38 75% 42%));
+    --gradient-gold-shimmer: linear-gradient(90deg, transparent, hsl(45 80% 65% / 0.4), transparent);
     --gradient-hero: linear-gradient(180deg, hsla(30, 10%, 10%, 0.6) 0%, hsla(30, 10%, 10%, 0.3) 50%, hsla(30, 10%, 10%, 0.7) 100%);
     --gradient-card: linear-gradient(180deg, hsl(45 30% 98%) 0%, hsl(45 25% 95%) 100%);
+    --gradient-subtle: linear-gradient(180deg, hsl(45 20% 98%) 0%, hsl(42 25% 96%) 100%);
 
-    /* Shadows */
+    /* Shadows - Enhanced with gold glow */
     --shadow-soft: 0 4px 20px hsla(30, 10%, 15%, 0.08);
-    --shadow-elegant: 0 8px 40px hsla(38, 55%, 60%, 0.15);
+    --shadow-elegant: 0 8px 40px hsla(42, 70%, 55%, 0.18);
     --shadow-luxury: 0 20px 60px hsla(30, 10%, 15%, 0.12);
+    --shadow-gold-glow: 0 0 30px hsla(45, 80%, 65%, 0.25);
 
     /* Sidebar */
     --sidebar-background: 45 30% 97%;
@@ -81,7 +86,7 @@
     --popover: 30 12% 12%;
     --popover-foreground: 45 20% 95%;
 
-    --primary: 38 55% 60%;
+    --primary: 42 70% 55%;
     --primary-foreground: 30 10% 10%;
 
     --secondary: 30 12% 18%;
@@ -98,11 +103,13 @@
 
     --border: 30 12% 20%;
     --input: 30 12% 20%;
-    --ring: 38 55% 60%;
+    --ring: 42 70% 55%;
 
-    --gold: 38 55% 60%;
-    --gold-light: 40 50% 70%;
-    --gold-dark: 35 60% 45%;
+    --gold: 42 70% 55%;
+    --gold-light: 45 65% 70%;
+    --gold-lighter: 48 60% 78%;
+    --gold-dark: 38 75% 42%;
+    --gold-glow: 45 80% 65%;
     --charcoal: 45 20% 95%;
     --cream: 30 12% 12%;
     --forest: 160 35% 35%;
@@ -147,6 +154,11 @@
            transition-all duration-300 ease-out
            hover:bg-gold-dark hover:shadow-elegant
            focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2;
+    box-shadow: 0 4px 15px hsla(42, 70%, 55%, 0.3);
+  }
+
+  .btn-gold:hover {
+    box-shadow: 0 6px 25px hsla(42, 70%, 55%, 0.4);
   }
 
   .btn-outline-gold {
@@ -210,10 +222,36 @@
            hover:shadow-luxury hover:-translate-y-2;
   }
 
-  /* Text Gradient Gold */
+  /* Text Gradient Gold - Enhanced */
   .text-gradient-gold {
     @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, hsl(40 50% 75%), hsl(38 55% 60%), hsl(35 60% 45%));
+    background-image: linear-gradient(135deg, hsl(48 60% 75%), hsl(42 70% 55%), hsl(38 75% 45%));
+  }
+
+  /* Gold Shimmer Effect */
+  .gold-shimmer {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .gold-shimmer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, hsla(45, 80%, 65%, 0.3), transparent);
+    animation: shimmer 3s ease-in-out infinite;
+  }
+
+  /* Gold Glow Effect */
+  .gold-glow {
+    box-shadow: 0 0 20px hsla(45, 80%, 65%, 0.3);
+  }
+
+  .gold-glow:hover {
+    box-shadow: 0 0 35px hsla(45, 80%, 65%, 0.45);
   }
 }
 

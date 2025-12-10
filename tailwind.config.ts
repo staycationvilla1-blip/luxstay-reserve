@@ -70,7 +70,9 @@ export default {
         gold: {
           DEFAULT: "hsl(var(--gold))",
           light: "hsl(var(--gold-light))",
+          lighter: "hsl(var(--gold-lighter))",
           dark: "hsl(var(--gold-dark))",
+          glow: "hsl(var(--gold-glow))",
         },
         charcoal: "hsl(var(--charcoal))",
         cream: "hsl(var(--cream))",
@@ -89,6 +91,7 @@ export default {
         soft: "var(--shadow-soft)",
         elegant: "var(--shadow-elegant)",
         luxury: "var(--shadow-luxury)",
+        "gold-glow": "var(--shadow-gold-glow)",
       },
       keyframes: {
         "accordion-down": {
@@ -121,8 +124,10 @@ export default {
       },
       backgroundImage: {
         "gradient-gold": "var(--gradient-gold)",
+        "gradient-gold-shimmer": "var(--gradient-gold-shimmer)",
         "gradient-hero": "var(--gradient-hero)",
         "gradient-card": "var(--gradient-card)",
+        "gradient-subtle": "var(--gradient-subtle)",
       },
     },
   },
