@@ -3,32 +3,28 @@ import { motion } from "framer-motion";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { ScrollToTop } from "@/components/ScrollToTop";
-import { VirtualTour } from "@/components/VirtualTour";
+import { PanoramaViewer } from "@/components/PanoramaViewer";
 import { Button } from "@/components/ui/button";
-import { Play, Eye, MapPin } from "lucide-react";
-
-import suite1 from "@/assets/suite-bedroom-1.jpg";
-import suite2 from "@/assets/suite-living.jpg";
-import suite3 from "@/assets/suite-dining.jpg";
+import { Play, Eye, MapPin, Rotate3D, MousePointer, Move } from "lucide-react";
 
 const tourPreviews = [
   {
     id: "bedroom",
     title: "Master Bedroom",
     description: "Experience our luxurious king-size suite",
-    image: suite1,
+    image: "/panoramas/bedroom-360.jpg",
   },
   {
     id: "living",
     title: "Living Room",
     description: "Elegant living space with designer furnishings",
-    image: suite2,
+    image: "/panoramas/living-360.jpg",
   },
   {
-    id: "dining",
-    title: "Dining Area",
-    description: "Sophisticated dining for memorable evenings",
-    image: suite3,
+    id: "suite",
+    title: "Presidential Suite",
+    description: "The pinnacle of luxury accommodation",
+    image: "/panoramas/suite-360.jpg",
   },
 ];
 
@@ -56,13 +52,13 @@ const VirtualTourPage = () => {
             >
               <Eye className="w-16 h-16 text-gold mx-auto mb-6 animate-float" />
               <h1 className="font-display text-5xl lg:text-7xl font-light mb-6">
-                <span className="text-foreground">Virtual </span>
+                <span className="text-foreground">360° Virtual </span>
                 <span className="text-gold">Tour</span>
               </h1>
               <div className="divider-gold mb-8" />
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-10">
-                Explore our exquisite suites from anywhere in the world. 
-                Navigate through rooms with interactive 360° views and discover every luxurious detail.
+                Immerse yourself in our exquisite suites with true 360-degree panoramic views. 
+                Explore every corner as if you were there.
               </p>
               <Button
                 variant="gold"
@@ -71,14 +67,58 @@ const VirtualTourPage = () => {
                 className="px-10 py-6 text-lg"
               >
                 <Play className="w-5 h-5 mr-2" />
-                Start Full Tour
+                Start Virtual Tour
               </Button>
             </motion.div>
           </div>
         </section>
 
+        {/* Features */}
+        <section className="py-16 bg-background">
+          <div className="max-w-5xl mx-auto px-6 lg:px-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+              {[
+                {
+                  icon: Rotate3D,
+                  title: "Full 360° View",
+                  description: "Look in any direction with immersive panoramic photography",
+                },
+                {
+                  icon: MousePointer,
+                  title: "Interactive Hotspots",
+                  description: "Click markers to learn about features and navigate rooms",
+                },
+                {
+                  icon: Move,
+                  title: "Seamless Navigation",
+                  description: "Move between connected spaces as if walking through",
+                },
+              ].map((feature, index) => (
+                <motion.div
+                  key={feature.title}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  className="p-6"
+                >
+                  <div className="w-14 h-14 rounded-full bg-gold/10 flex items-center justify-center mx-auto mb-4">
+                    <feature.icon className="w-7 h-7 text-gold" />
+                  </div>
+                  <h3 className="font-display text-lg text-foreground mb-2">
+                    {feature.title}
+                  </h3>
+                  <p className="text-muted-foreground text-sm">
+                    {feature.description}
+                  </p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* Tour Previews */}
-        <section className="py-20 bg-background">
+        <section className="py-20 bg-secondary/30">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -91,7 +131,7 @@ const VirtualTourPage = () => {
               </p>
               <h2 className="font-display text-4xl md:text-5xl font-light text-foreground mb-6">
                 Explore{" "}
-                <span className="text-gold">Individual Rooms</span>
+                <span className="text-gold">Our Spaces</span>
               </h2>
               <div className="divider-gold" />
             </motion.div>
@@ -118,7 +158,7 @@ const VirtualTourPage = () => {
                   <div className="absolute inset-0 flex flex-col justify-end p-6">
                     <div className="flex items-center gap-2 text-gold mb-2">
                       <MapPin className="w-4 h-4" />
-                      <span className="text-sm uppercase tracking-wider">360° View</span>
+                      <span className="text-sm uppercase tracking-wider">360° Panorama</span>
                     </div>
                     <h3 className="font-display text-2xl text-cream mb-2">
                       {preview.title}
@@ -136,42 +176,26 @@ const VirtualTourPage = () => {
           </div>
         </section>
 
-        {/* Features */}
-        <section className="py-20 bg-secondary/30">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-              {[
-                {
-                  title: "Interactive Hotspots",
-                  description: "Click on points of interest to learn about each feature and amenity.",
-                },
-                {
-                  title: "Room Navigation",
-                  description: "Seamlessly move between connected rooms as if walking through the suite.",
-                },
-                {
-                  title: "Zoom & Pan",
-                  description: "Get closer views of details with intuitive zoom and rotation controls.",
-                },
-              ].map((feature, index) => (
-                <motion.div
-                  key={feature.title}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className="p-8"
-                >
-                  <h3 className="font-display text-xl text-foreground mb-3">
-                    {feature.title}
-                  </h3>
-                  <p className="text-muted-foreground">
-                    {feature.description}
-                  </p>
-                </motion.div>
-              ))}
-            </div>
-          </div>
+        {/* CTA */}
+        <section className="py-20 bg-charcoal">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center px-6"
+          >
+            <h2 className="font-display text-4xl md:text-5xl font-light text-cream mb-6">
+              Ready to <span className="text-gold">Experience</span> Luxury?
+            </h2>
+            <p className="text-cream/70 text-lg max-w-2xl mx-auto mb-8">
+              After exploring our virtual tour, book your stay and experience these spaces in person.
+            </p>
+            <a href="/reserve">
+              <Button variant="gold" size="xl">
+                Reserve Your Suite
+              </Button>
+            </a>
+          </motion.div>
         </section>
       </main>
 
@@ -179,13 +203,11 @@ const VirtualTourPage = () => {
       <ScrollToTop />
 
       {/* Virtual Tour Modal */}
-      {showTour && (
-        <VirtualTour
-          isOpen={showTour}
-          onClose={() => setShowTour(false)}
-          initialRoom={initialRoom}
-        />
-      )}
+      <PanoramaViewer
+        isOpen={showTour}
+        onClose={() => setShowTour(false)}
+        initialRoom={initialRoom}
+      />
     </div>
   );
 };
