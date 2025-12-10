@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -12,7 +12,7 @@ const useScrollToTopOnNavigation = () => {
   
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "instant" });
-  }, [location.pathname]);
+  }, [location.pathname, location.key]);
 };
 
 const navItems = [
@@ -27,6 +27,7 @@ const navItems = [
 export const Navigation = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
   
   // Scroll to top on navigation
   useScrollToTopOnNavigation();
@@ -34,6 +35,17 @@ export const Navigation = () => {
   useEffect(() => {
     setIsMobileMenuOpen(false);
   }, [location]);
+
+  const handleNavClick = (e: React.MouseEvent, path: string) => {
+    e.preventDefault();
+    if (location.pathname === path) {
+      // Already on this page - scroll to top and force refresh by navigating with a new key
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      navigate(path, { replace: true, state: { refresh: Date.now() } });
+    } else {
+      navigate(path);
+    }
+  };
 
   return (
     <>
@@ -45,7 +57,7 @@ export const Navigation = () => {
       >
         <nav className="w-full px-6 lg:px-12 flex items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="relative z-10">
+          <a href="/" onClick={(e) => handleNavClick(e, "/")} className="relative z-10">
             <motion.img
               src={logo}
               alt="Maison Luxe"
@@ -53,12 +65,12 @@ export const Navigation = () => {
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.2 }}
             />
-          </Link>
+          </a>
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-2">
             {navItems.map((item, index) => (
-              <Link key={item.path} to={item.path}>
+              <a key={item.path} href={item.path} onClick={(e) => handleNavClick(e, item.path)}>
                 <motion.div
                   initial={{ opacity: 0, y: -20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -78,7 +90,7 @@ export const Navigation = () => {
                     </Button>
                   )}
                 </motion.div>
-              </Link>
+              </a>
             ))}
           </div>
 
@@ -110,7 +122,7 @@ export const Navigation = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
                 >
-                  <Link to={item.path}>
+                  <a href={item.path} onClick={(e) => handleNavClick(e, item.path)}>
                     {item.name === "Reserve Now" ? (
                       <Button variant="gold" size="xl">
                         {item.name}
@@ -126,7 +138,7 @@ export const Navigation = () => {
                         {item.name}
                       </span>
                     )}
-                  </Link>
+                  </a>
                 </motion.div>
               ))}
             </div>
