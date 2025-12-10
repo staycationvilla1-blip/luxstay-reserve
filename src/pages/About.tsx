@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
+import { ScrollToTop } from "@/components/ScrollToTop";
 import { Crown, Heart, Award, Users } from "lucide-react";
 
 import aboutImage from "@/assets/suite-dining.jpg";
@@ -223,6 +224,7 @@ const About = () => {
       </section>
 
       <Footer />
+      <ScrollToTop />
     </div>
   );
 };

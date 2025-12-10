@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
+import { ScrollToTop } from "@/components/ScrollToTop";
 import { RoomModal, type Suite } from "@/components/RoomModal";
 import { Gallery } from "@/components/Gallery";
 import {
@@ -404,6 +405,7 @@ const Suites = () => {
       <Gallery />
 
       <Footer />
+      <ScrollToTop />
 
       {/* Room Modal */}
       <AnimatePresence>

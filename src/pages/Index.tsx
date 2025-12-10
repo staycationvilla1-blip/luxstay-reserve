@@ -3,6 +3,7 @@ import { useRef } from "react";
 import { ChevronDown, Crown, Shield, Star, Clock, Sparkles } from "lucide-react";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
+import { ScrollToTop } from "@/components/ScrollToTop";
 import { BookingBar } from "@/components/BookingBar";
 import { SuiteCard } from "@/components/SuiteCard";
 
@@ -337,6 +338,7 @@ const Index = () => {
       </section>
 
       <Footer />
+      <ScrollToTop />
     </div>
   );
 };

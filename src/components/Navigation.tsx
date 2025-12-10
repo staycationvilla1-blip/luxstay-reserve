@@ -8,6 +8,8 @@ import logo from "@/assets/logo.png";
 const navItems = [
   { name: "Home", path: "/" },
   { name: "Suites", path: "/suites" },
+  { name: "Virtual Tour", path: "/virtual-tour" },
+  { name: "Amenities", path: "/amenities" },
   { name: "About", path: "/about" },
   { name: "Reserve Now", path: "/reserve" },
 ];

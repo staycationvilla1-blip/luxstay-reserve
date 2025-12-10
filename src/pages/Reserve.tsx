@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { useLocation } from "react-router-dom";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
+import { ScrollToTop } from "@/components/ScrollToTop";
 import { Calendar, Users, Mail, Phone, User, MessageSquare, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
@@ -292,6 +293,7 @@ const Reserve = () => {
       </section>
 
       <Footer />
+      <ScrollToTop />
     </div>
   );
 };
