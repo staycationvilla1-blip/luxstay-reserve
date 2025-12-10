@@ -68,9 +68,8 @@ export const Footer = () => {
             </p>
             <div className="flex items-center gap-4">
               {[
-                { icon: Instagram, href: "#" },
-                { icon: Facebook, href: "#" },
-                { icon: Twitter, href: "#" },
+                { icon: Instagram, href: "https://www.instagram.com/maisonluxe_apartments/" },
+                { icon: Facebook, href: "https://www.facebook.com/61579293305032/videos/-maison-luxe-apartments-special-offer-limited-time-only-executive210000-per-day-/785476704626668/" },
               ].map((social, i) => (
                 <motion.a
                   key={i}
@@ -156,8 +155,8 @@ export const Footer = () => {
               >
                 <MapPin size={18} className="text-gold mt-1 shrink-0 group-hover:scale-110 transition-transform" />
                 <span className="text-cream/70">
-                  123 Luxury Avenue<br />
-                  City Center, State 10001
+                  Kisasa Center B, Dodoma<br />
+                  Tanzania
                 </span>
               </motion.li>
               <motion.li 
@@ -166,8 +165,8 @@ export const Footer = () => {
                 transition={{ duration: 0.2 }}
               >
                 <Phone size={18} className="text-gold shrink-0 group-hover:scale-110 transition-transform" />
-                <a href="tel:+1234567890" className="text-cream/70 hover:text-gold transition-colors">
-                  +1 (234) 567-890
+                <a href="tel:+255759441144" className="text-cream/70 hover:text-gold transition-colors">
+                  +255 759 441 144
                 </a>
               </motion.li>
               <motion.li 
@@ -176,8 +175,8 @@ export const Footer = () => {
                 transition={{ duration: 0.2 }}
               >
                 <Mail size={18} className="text-gold shrink-0 group-hover:scale-110 transition-transform" />
-                <a href="mailto:hello@maisonluxe.com" className="text-cream/70 hover:text-gold transition-colors">
-                  hello@maisonluxe.com
+                <a href="mailto:maisonluxe@whistlingwoods.co.tz" className="text-cream/70 hover:text-gold transition-colors">
+                  maisonluxe@whistlingwoods.co.tz
                 </a>
               </motion.li>
             </ul>
@@ -232,7 +231,10 @@ export const Footer = () => {
         transition={{ duration: 0.6, delay: 0.5 }}
       >
         <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-cream/50">
-          <p>&copy; {new Date().getFullYear()} Maison Luxe. All rights reserved.</p>
+          <div className="flex items-center gap-4">
+            <img src={logo} alt="Maison Luxe" className="h-10 w-auto brightness-0 invert opacity-70" />
+            <p>&copy; {new Date().getFullYear()} Maison Luxe. All rights reserved.</p>
+          </div>
           <div className="flex items-center gap-6">
             <motion.a 
               href="#" 

@@ -23,7 +23,7 @@ const buttonVariants = cva(
           "text-gold underline-offset-4 hover:underline",
         // Luxury Variants
         gold:
-          "bg-gold text-foreground font-medium tracking-wide hover:bg-gold-dark hover:shadow-elegant rounded-md",
+          "bg-gold text-white font-bold tracking-wide hover:bg-gold-dark hover:shadow-elegant rounded-md",
         "outline-gold":
           "border-2 border-gold text-gold bg-transparent hover:bg-gold hover:text-foreground rounded-md",
         hero:
