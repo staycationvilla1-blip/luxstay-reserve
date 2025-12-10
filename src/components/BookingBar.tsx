@@ -28,7 +28,7 @@ export const BookingBar = () => {
       initial={{ opacity: 0, y: 40, scale: 0.95 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
       transition={{ delay: 0.8, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-      className="relative booking-bar rounded-2xl p-6 md:p-8 w-full max-w-5xl mx-auto overflow-hidden"
+      className="relative booking-bar rounded-none p-6 md:p-8 w-full overflow-hidden"
     >
       {/* Animated background shimmer */}
       <motion.div
