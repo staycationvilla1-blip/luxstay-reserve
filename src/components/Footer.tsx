@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { MapPin, Phone, Mail, Instagram, Facebook, Twitter, ArrowUpRight } from "lucide-react";
 import { motion } from "framer-motion";
 import logo from "@/assets/logo.png";
@@ -27,6 +27,19 @@ const itemVariants = {
 };
 
 export const Footer = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleNavClick = (e: React.MouseEvent, path: string) => {
+    e.preventDefault();
+    if (location.pathname === path) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      navigate(path, { replace: true, state: { refresh: Date.now() } });
+    } else {
+      navigate(path);
+    }
+  };
+
   return (
     <footer className="bg-charcoal text-cream/90 overflow-hidden">
       {/* Decorative top border */}
@@ -105,8 +118,9 @@ export const Footer = () => {
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ delay: i * 0.05 + 0.3 }}
                 >
-                  <Link
-                    to={item.path}
+                  <a
+                    href={item.path}
+                    onClick={(e) => handleNavClick(e, item.path)}
                     className="text-cream/70 hover:text-gold transition-colors flex items-center group"
                   >
                     <motion.span
@@ -117,7 +131,7 @@ export const Footer = () => {
                       {item.name}
                       <ArrowUpRight size={14} className="ml-1 opacity-0 group-hover:opacity-100 transition-opacity" />
                     </motion.span>
-                  </Link>
+                  </a>
                 </motion.li>
               ))}
             </ul>
