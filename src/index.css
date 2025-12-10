@@ -307,3 +307,68 @@
 ::-webkit-scrollbar-thumb:hover {
   background: hsl(var(--gold-dark));
 }
+
+/* Panorama Marker Styles */
+.panorama-marker {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+}
+
+.panorama-marker .marker-pulse {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  animation: markerPulse 2s ease-out infinite;
+}
+
+.panorama-marker.info-marker .marker-pulse {
+  background: hsla(45, 30%, 97%, 0.3);
+}
+
+.panorama-marker.nav-marker .marker-pulse {
+  background: hsla(38, 55%, 60%, 0.3);
+}
+
+.panorama-marker .marker-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: bold;
+  z-index: 1;
+  transition: transform 0.2s ease;
+}
+
+.panorama-marker.info-marker .marker-icon {
+  background: hsla(45, 30%, 97%, 0.9);
+  color: hsl(30, 10%, 15%);
+}
+
+.panorama-marker.nav-marker .marker-icon {
+  background: hsla(38, 55%, 60%, 0.9);
+  color: hsl(30, 10%, 15%);
+}
+
+.panorama-marker:hover .marker-icon {
+  transform: scale(1.15);
+}
+
+@keyframes markerPulse {
+  0% {
+    transform: scale(0.8);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
