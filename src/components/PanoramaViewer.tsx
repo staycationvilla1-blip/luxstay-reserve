@@ -7,6 +7,10 @@ import { motion, AnimatePresence } from "framer-motion";
 import { X, ChevronLeft, ChevronRight, MapPin, Info } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
+import suiteBedroom from "@/assets/suite-bedroom-1.jpg";
+import suiteLiving from "@/assets/suite-living.jpg";
+import suiteDining from "@/assets/suite-dining.jpg";
+
 interface Marker {
   id: string;
   longitude: number;
@@ -28,8 +32,8 @@ const panoramaRooms: PanoramaRoom[] = [
   {
     id: "bedroom",
     name: "Master Bedroom",
-    panorama: "/panoramas/bedroom-360.jpg",
-    thumbnail: "/panoramas/bedroom-360.jpg",
+    panorama: suiteBedroom,
+    thumbnail: suiteBedroom,
     markers: [
       { id: "bed", longitude: 0, latitude: -0.1, label: "King Size Bed", description: "Luxurious king-size bed with premium Egyptian cotton linens and memory foam mattress." },
       { id: "window", longitude: 1.5, latitude: 0.2, label: "Panoramic View", description: "Floor-to-ceiling windows offering stunning city views." },
@@ -39,8 +43,8 @@ const panoramaRooms: PanoramaRoom[] = [
   {
     id: "living",
     name: "Living Room",
-    panorama: "/panoramas/living-360.jpg",
-    thumbnail: "/panoramas/living-360.jpg",
+    panorama: suiteLiving,
+    thumbnail: suiteLiving,
     markers: [
       { id: "sofa", longitude: 0, latitude: -0.1, label: "Designer Sofa", description: "Italian leather sofa with custom upholstery for ultimate comfort." },
       { id: "tv", longitude: -1.5, latitude: 0.1, label: "Entertainment", description: "65-inch OLED smart TV with premium sound system." },
@@ -51,8 +55,8 @@ const panoramaRooms: PanoramaRoom[] = [
   {
     id: "suite",
     name: "Presidential Suite",
-    panorama: "/panoramas/suite-360.jpg",
-    thumbnail: "/panoramas/suite-360.jpg",
+    panorama: suiteDining,
+    thumbnail: suiteDining,
     markers: [
       { id: "balcony", longitude: 0, latitude: 0.3, label: "Private Balcony", description: "Exclusive balcony with stunning panoramic views." },
       { id: "dining", longitude: 2, latitude: -0.1, label: "Dining Area", description: "Elegant private dining space for intimate gatherings." },
