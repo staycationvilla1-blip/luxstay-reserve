@@ -1,9 +1,19 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
+import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo.png";
+
+// Scroll to top on navigation
+const useScrollToTopOnNavigation = () => {
+  const location = useLocation();
+  
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "instant" });
+  }, [location.pathname]);
+};
 
 const navItems = [
   { name: "Home", path: "/" },
@@ -15,17 +25,11 @@ const navItems = [
 ];
 
 export const Navigation = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  
+  // Scroll to top on navigation
+  useScrollToTopOnNavigation();
 
   useEffect(() => {
     setIsMobileMenuOpen(false);
@@ -37,11 +41,7 @@ export const Navigation = () => {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          isScrolled
-            ? "bg-background/95 backdrop-blur-xl shadow-soft py-3"
-            : "bg-transparent py-6"
-        }`}
+        className="fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-background shadow-soft py-3"
       >
         <nav className="w-full px-6 lg:px-12 flex items-center justify-between">
           {/* Logo */}
@@ -72,11 +72,7 @@ export const Navigation = () => {
                     <Button
                       variant={location.pathname === item.path ? "nav-active" : "nav"}
                       size="default"
-                      className={`gold-underline ${
-                        !isScrolled && location.pathname === "/"
-                          ? "text-cream/90 hover:text-cream"
-                          : ""
-                      }`}
+                      className="gold-underline"
                     >
                       {item.name}
                     </Button>
@@ -89,9 +85,7 @@ export const Navigation = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className={`lg:hidden relative z-10 p-2 ${
-              !isScrolled && location.pathname === "/" ? "text-cream" : "text-foreground"
-            }`}
+            className="lg:hidden relative z-10 p-2 text-foreground"
           >
             {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
