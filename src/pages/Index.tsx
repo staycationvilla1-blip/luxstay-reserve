@@ -8,6 +8,7 @@ import { ScrollToTop } from "@/components/ScrollToTop";
 import { BookingBar } from "@/components/BookingBar";
 import { SuiteCard } from "@/components/SuiteCard";
 import { ShimmerButton } from "@/components/ShimmerButton";
+import { LocationMap } from "@/components/LocationMap";
 
 import heroImage from "@/assets/hero-living.jpg";
 import suite1 from "@/assets/suite-bedroom-1.jpg";
@@ -389,6 +390,7 @@ const Index = () => {
         </div>
       </section>
 
+      <LocationMap />
       <Footer />
       <ScrollToTop />
     </div>
