@@ -100,7 +100,7 @@ const Index = () => {
         </motion.div>
 
         {/* Hero Content */}
-        <div className="relative z-10 text-center px-6 max-w-5xl mx-auto pt-24">
+        <div className="relative z-10 text-center px-6 max-w-5xl mx-auto pt-24 pb-48">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -122,15 +122,15 @@ const Index = () => {
 
             <div className="w-24 h-px bg-gold mx-auto mb-8" />
 
-            <p className="text-cream/80 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-12">
+            <p className="text-gold text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-12">
               Experience the art of refined living in our exclusive collection of 
               luxury suites, where every moment is crafted for perfection.
             </p>
           </motion.div>
         </div>
 
-        {/* Booking Bar */}
-        <div className="relative z-10 w-full px-6 mt-8">
+        {/* Booking Bar - Positioned at bottom */}
+        <div className="absolute bottom-0 left-0 right-0 z-10 w-full">
           <BookingBar />
         </div>
 
