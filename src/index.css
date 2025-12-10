@@ -1,0 +1,309 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Maison Luxe Color Palette */
+    --background: 45 20% 98%;
+    --foreground: 30 10% 15%;
+
+    --card: 45 30% 97%;
+    --card-foreground: 30 10% 15%;
+
+    --popover: 45 30% 97%;
+    --popover-foreground: 30 10% 15%;
+
+    /* Rich Gold from Logo */
+    --primary: 38 55% 60%;
+    --primary-foreground: 30 10% 10%;
+
+    /* Warm Cream */
+    --secondary: 40 25% 94%;
+    --secondary-foreground: 30 15% 20%;
+
+    --muted: 40 20% 92%;
+    --muted-foreground: 30 10% 45%;
+
+    /* Forest Green Accent */
+    --accent: 160 35% 25%;
+    --accent-foreground: 45 30% 97%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 38 30% 85%;
+    --input: 38 30% 85%;
+    --ring: 38 55% 60%;
+
+    --radius: 0.5rem;
+
+    /* Custom Maison Luxe tokens */
+    --gold: 38 55% 60%;
+    --gold-light: 40 50% 75%;
+    --gold-dark: 35 60% 45%;
+    --charcoal: 30 10% 15%;
+    --cream: 45 30% 97%;
+    --forest: 160 35% 25%;
+    --forest-light: 155 25% 35%;
+    --ivory: 45 20% 96%;
+
+    /* Gradients */
+    --gradient-gold: linear-gradient(135deg, hsl(40 50% 75%), hsl(38 55% 60%), hsl(35 60% 45%));
+    --gradient-hero: linear-gradient(180deg, hsla(30, 10%, 10%, 0.6) 0%, hsla(30, 10%, 10%, 0.3) 50%, hsla(30, 10%, 10%, 0.7) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(45 30% 98%) 0%, hsl(45 25% 95%) 100%);
+
+    /* Shadows */
+    --shadow-soft: 0 4px 20px hsla(30, 10%, 15%, 0.08);
+    --shadow-elegant: 0 8px 40px hsla(38, 55%, 60%, 0.15);
+    --shadow-luxury: 0 20px 60px hsla(30, 10%, 15%, 0.12);
+
+    /* Sidebar */
+    --sidebar-background: 45 30% 97%;
+    --sidebar-foreground: 30 10% 20%;
+    --sidebar-primary: 38 55% 60%;
+    --sidebar-primary-foreground: 30 10% 10%;
+    --sidebar-accent: 40 25% 94%;
+    --sidebar-accent-foreground: 30 15% 20%;
+    --sidebar-border: 38 30% 85%;
+    --sidebar-ring: 38 55% 60%;
+  }
+
+  .dark {
+    --background: 30 15% 8%;
+    --foreground: 45 20% 95%;
+
+    --card: 30 12% 12%;
+    --card-foreground: 45 20% 95%;
+
+    --popover: 30 12% 12%;
+    --popover-foreground: 45 20% 95%;
+
+    --primary: 38 55% 60%;
+    --primary-foreground: 30 10% 10%;
+
+    --secondary: 30 12% 18%;
+    --secondary-foreground: 45 20% 90%;
+
+    --muted: 30 12% 20%;
+    --muted-foreground: 40 15% 60%;
+
+    --accent: 160 35% 30%;
+    --accent-foreground: 45 30% 97%;
+
+    --destructive: 0 62.8% 40%;
+    --destructive-foreground: 45 20% 95%;
+
+    --border: 30 12% 20%;
+    --input: 30 12% 20%;
+    --ring: 38 55% 60%;
+
+    --gold: 38 55% 60%;
+    --gold-light: 40 50% 70%;
+    --gold-dark: 35 60% 45%;
+    --charcoal: 45 20% 95%;
+    --cream: 30 12% 12%;
+    --forest: 160 35% 35%;
+    --forest-light: 155 25% 45%;
+    --ivory: 30 15% 10%;
+
+    --sidebar-background: 30 12% 10%;
+    --sidebar-foreground: 45 20% 90%;
+    --sidebar-primary: 38 55% 60%;
+    --sidebar-primary-foreground: 30 10% 10%;
+    --sidebar-accent: 30 12% 15%;
+    --sidebar-accent-foreground: 45 20% 90%;
+    --sidebar-border: 30 12% 18%;
+    --sidebar-ring: 38 55% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-feature-settings: "kern" 1;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+}
+
+@layer components {
+  /* Luxury Button Variants */
+  .btn-gold {
+    @apply inline-flex items-center justify-center px-8 py-4 
+           bg-gold text-charcoal font-medium tracking-wide
+           transition-all duration-300 ease-out
+           hover:bg-gold-dark hover:shadow-elegant
+           focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2;
+  }
+
+  .btn-outline-gold {
+    @apply inline-flex items-center justify-center px-8 py-4
+           border-2 border-gold text-gold font-medium tracking-wide
+           bg-transparent transition-all duration-300 ease-out
+           hover:bg-gold hover:text-charcoal
+           focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center px-6 py-3
+           text-foreground/80 font-medium tracking-wide
+           bg-transparent transition-all duration-300 ease-out
+           hover:text-gold hover:bg-gold/5
+           focus:outline-none;
+  }
+
+  /* Glass Card */
+  .glass-card {
+    @apply bg-background/80 backdrop-blur-xl 
+           border border-border/50 
+           shadow-luxury;
+  }
+
+  /* Booking Bar Glass Effect */
+  .booking-bar {
+    @apply bg-background/95 backdrop-blur-2xl 
+           border border-gold/20 
+           shadow-luxury;
+  }
+
+  /* Gold Underline Animation */
+  .gold-underline {
+    @apply relative;
+  }
+
+  .gold-underline::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-0 h-0.5 bg-gold
+           transition-all duration-300 ease-out;
+  }
+
+  .gold-underline:hover::after {
+    @apply w-full;
+  }
+
+  /* Section Divider */
+  .divider-gold {
+    @apply w-20 h-px bg-gold mx-auto;
+  }
+
+  /* Image Overlay */
+  .image-overlay {
+    @apply absolute inset-0 bg-gradient-to-t from-charcoal/80 via-charcoal/20 to-transparent;
+  }
+
+  /* Card Hover Effect */
+  .card-hover {
+    @apply transition-all duration-500 ease-out
+           hover:shadow-luxury hover:-translate-y-2;
+  }
+
+  /* Text Gradient Gold */
+  .text-gradient-gold {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(40 50% 75%), hsl(38 55% 60%), hsl(35 60% 45%));
+  }
+}
+
+@layer utilities {
+  /* Custom Animations */
+  .animate-fade-up {
+    animation: fadeUp 0.8s ease-out forwards;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.5s ease-out forwards;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.7s ease-out forwards;
+  }
+
+  .animate-float {
+    animation: float 4s ease-in-out infinite;
+  }
+
+  /* Stagger delays */
+  .delay-100 { animation-delay: 100ms; }
+  .delay-200 { animation-delay: 200ms; }
+  .delay-300 { animation-delay: 300ms; }
+  .delay-400 { animation-delay: 400ms; }
+  .delay-500 { animation-delay: 500ms; }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--gold));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--gold-dark));
+}
