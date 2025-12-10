@@ -5,6 +5,7 @@ import { Footer } from "@/components/Footer";
 import { ScrollToTop } from "@/components/ScrollToTop";
 import { PanoramaViewer } from "@/components/PanoramaViewer";
 import { Button } from "@/components/ui/button";
+import { ShimmerButton } from "@/components/ShimmerButton";
 import { Play, Eye, MapPin, Rotate3D, MousePointer, Move } from "lucide-react";
 
 const tourPreviews = [
@@ -190,11 +191,9 @@ const VirtualTourPage = () => {
             <p className="text-cream/70 text-lg max-w-2xl mx-auto mb-8">
               After exploring our virtual tour, book your stay and experience these spaces in person.
             </p>
-            <a href="/reserve">
-              <Button variant="gold" size="xl">
-                Reserve Your Suite
-              </Button>
-            </a>
+            <ShimmerButton to="/reserve" variant="gold" size="xl">
+              Reserve Your Suite
+            </ShimmerButton>
           </motion.div>
         </section>
       </main>

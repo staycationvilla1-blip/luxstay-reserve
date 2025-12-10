@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Calendar, Users, Search, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
@@ -10,11 +10,17 @@ export const BookingBar = () => {
   const [checkOut, setCheckOut] = useState("");
   const [guests, setGuests] = useState("2");
   const [focusedField, setFocusedField] = useState<string | null>(null);
+  const [isSearching, setIsSearching] = useState(false);
 
   const handleSearch = () => {
-    navigate("/reserve", {
-      state: { checkIn, checkOut, guests },
-    });
+    if (isSearching) return;
+    setIsSearching(true);
+    
+    setTimeout(() => {
+      navigate("/reserve", {
+        state: { checkIn, checkOut, guests },
+      });
+    }, 600);
   };
 
   return (
@@ -152,6 +158,7 @@ export const BookingBar = () => {
             size="xl"
             className="w-full flex items-center justify-center gap-2 relative overflow-hidden group"
             onClick={handleSearch}
+            disabled={isSearching}
           >
             <motion.div
               className="absolute inset-0 bg-gradient-to-r from-gold-dark via-gold to-gold-dark"
@@ -165,6 +172,60 @@ export const BookingBar = () => {
                 ease: "linear",
               }}
             />
+            
+            {/* Shimmer effect on click */}
+            <AnimatePresence>
+              {isSearching && (
+                <>
+                  <motion.div
+                    className="absolute inset-0 z-20"
+                    initial={{ scale: 0, opacity: 1 }}
+                    animate={{ scale: 3, opacity: 0 }}
+                    transition={{ duration: 0.6, ease: "easeOut" }}
+                    style={{
+                      background: "radial-gradient(circle, hsl(45 90% 70% / 0.8) 0%, transparent 70%)",
+                    }}
+                  />
+                  <motion.div
+                    className="absolute inset-0 z-20"
+                    initial={{ x: "-100%" }}
+                    animate={{ x: "200%" }}
+                    transition={{ duration: 0.5, ease: "easeInOut" }}
+                    style={{
+                      background: "linear-gradient(90deg, transparent, hsl(45 90% 80% / 0.9), hsl(45 100% 90%), hsl(45 90% 80% / 0.9), transparent)",
+                      width: "50%",
+                    }}
+                  />
+                  {[...Array(6)].map((_, i) => (
+                    <motion.div
+                      key={i}
+                      className="absolute w-2 h-2 bg-gold rounded-full z-30"
+                      initial={{ 
+                        x: "50%", 
+                        y: "50%",
+                        scale: 0,
+                        opacity: 1 
+                      }}
+                      animate={{ 
+                        x: `${50 + (Math.random() - 0.5) * 200}%`,
+                        y: `${50 + (Math.random() - 0.5) * 200}%`,
+                        scale: [0, 1, 0],
+                        opacity: [1, 1, 0]
+                      }}
+                      transition={{ 
+                        duration: 0.5,
+                        delay: i * 0.03,
+                        ease: "easeOut"
+                      }}
+                      style={{
+                        boxShadow: "0 0 10px hsl(45 80% 60%), 0 0 20px hsl(45 80% 60% / 0.5)",
+                      }}
+                    />
+                  ))}
+                </>
+              )}
+            </AnimatePresence>
+            
             <span className="relative z-10 flex items-center gap-2">
               <Search size={18} />
               Check Availability

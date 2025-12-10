@@ -7,6 +7,7 @@ import { Footer } from "@/components/Footer";
 import { ScrollToTop } from "@/components/ScrollToTop";
 import { BookingBar } from "@/components/BookingBar";
 import { SuiteCard } from "@/components/SuiteCard";
+import { ShimmerButton } from "@/components/ShimmerButton";
 
 import heroImage from "@/assets/hero-living.jpg";
 import suite1 from "@/assets/suite-bedroom-1.jpg";
@@ -330,11 +331,9 @@ const Index = () => {
             Discover a world where exceptional design meets unparalleled service. 
             Your extraordinary journey begins at Maison Luxe.
           </p>
-          <a href="/reserve">
-            <button className="btn-gold px-10 py-4 rounded-lg text-base">
-              Reserve Your Suite
-            </button>
-          </a>
+          <ShimmerButton to="/reserve" variant="gold" size="xl">
+            Reserve Your Suite
+          </ShimmerButton>
         </motion.div>
       </section>
 
