@@ -8,24 +8,28 @@ import { Button } from "@/components/ui/button";
 import { ShimmerButton } from "@/components/ShimmerButton";
 import { Play, Eye, MapPin, Rotate3D, MousePointer, Move } from "lucide-react";
 
+import suiteBedroom from "@/assets/suite-bedroom-1.jpg";
+import suiteLiving from "@/assets/suite-living.jpg";
+import suiteDining from "@/assets/suite-dining.jpg";
+
 const tourPreviews = [
   {
     id: "bedroom",
     title: "Master Bedroom",
     description: "Experience our luxurious king-size suite",
-    image: "/panoramas/bedroom-360.jpg",
+    image: suiteBedroom,
   },
   {
     id: "living",
     title: "Living Room",
     description: "Elegant living space with designer furnishings",
-    image: "/panoramas/living-360.jpg",
+    image: suiteLiving,
   },
   {
     id: "suite",
     title: "Presidential Suite",
     description: "The pinnacle of luxury accommodation",
-    image: "/panoramas/suite-360.jpg",
+    image: suiteDining,
   },
 ];
 
