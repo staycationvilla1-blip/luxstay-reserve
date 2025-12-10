@@ -67,31 +67,40 @@ export const Navigation = () => {
             />
           </a>
 
-          {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-2">
-            {navItems.map((item, index) => (
+          {/* Desktop Navigation - Centered */}
+          <div className="hidden lg:flex items-center justify-center flex-1 gap-3">
+            {navItems.filter(item => item.name !== "Reserve Now").map((item, index) => (
               <a key={item.path} href={item.path} onClick={(e) => handleNavClick(e, item.path)}>
                 <motion.div
                   initial={{ opacity: 0, y: -20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
                 >
-                  {item.name === "Reserve Now" ? (
-                    <Button variant="gold" size="default" className="ml-4">
-                      {item.name}
-                    </Button>
-                  ) : (
-                    <Button
-                      variant={location.pathname === item.path ? "nav-active" : "nav"}
-                      size="default"
-                      className="gold-underline"
-                    >
-                      {item.name}
-                    </Button>
-                  )}
+                  <Button
+                    variant={location.pathname === item.path ? "nav-active" : "nav"}
+                    size="lg"
+                    className="gold-underline text-base font-semibold"
+                  >
+                    {item.name}
+                  </Button>
                 </motion.div>
               </a>
             ))}
+          </div>
+          
+          {/* Reserve Button - Right Side */}
+          <div className="hidden lg:block">
+            <a href="/reserve" onClick={(e) => handleNavClick(e, "/reserve")}>
+              <motion.div
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5 }}
+              >
+                <Button variant="gold" size="default">
+                  Reserve Now
+                </Button>
+              </motion.div>
+            </a>
           </div>
 
           {/* Mobile Menu Button */}

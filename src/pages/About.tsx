@@ -230,8 +230,8 @@ const About = () => {
               </div>
               <h3 className="font-display text-xl text-foreground mb-3">Location</h3>
               <p className="text-muted-foreground text-sm leading-relaxed">
-                123 Luxury Avenue<br />
-                Dodoma, Tanzania
+                Kisasa Center B, Dodoma<br />
+                Tanzania
               </p>
             </motion.div>
 
@@ -247,11 +247,8 @@ const About = () => {
               </div>
               <h3 className="font-display text-xl text-foreground mb-3">Phone</h3>
               <p className="text-muted-foreground text-sm leading-relaxed">
-                <a href="tel:+255123456789" className="hover:text-gold transition-colors">
-                  +255 123 456 789
-                </a><br />
-                <a href="tel:+255987654321" className="hover:text-gold transition-colors">
-                  +255 987 654 321
+                <a href="tel:+255759441144" className="hover:text-gold transition-colors">
+                  +255 759 441 144
                 </a>
               </p>
             </motion.div>
@@ -268,11 +265,8 @@ const About = () => {
               </div>
               <h3 className="font-display text-xl text-foreground mb-3">Email</h3>
               <p className="text-muted-foreground text-sm leading-relaxed">
-                <a href="mailto:info@maisonluxe.com" className="hover:text-gold transition-colors">
-                  info@maisonluxe.com
-                </a><br />
-                <a href="mailto:reservations@maisonluxe.com" className="hover:text-gold transition-colors">
-                  reservations@maisonluxe.com
+                <a href="mailto:maisonluxe@whistlingwoods.co.tz" className="hover:text-gold transition-colors">
+                  maisonluxe@whistlingwoods.co.tz
                 </a>
               </p>
             </motion.div>
