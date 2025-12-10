@@ -1,5 +1,6 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
+import { Link } from "react-router-dom";
 import { ChevronDown, Crown, Shield, Star, Clock, Sparkles } from "lucide-react";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
@@ -327,7 +328,7 @@ const Index = () => {
           <div className="w-24 h-px bg-gold mx-auto mb-8" />
           <p className="text-cream/80 text-lg max-w-2xl mx-auto mb-10 leading-relaxed">
             Discover a world where exceptional design meets unparalleled service. 
-            Your extraordinary stay awaits at Maison Luxe.
+            Your extraordinary journey begins at Maison Luxe.
           </p>
           <a href="/reserve">
             <button className="btn-gold px-10 py-4 rounded-lg text-base">
@@ -335,6 +336,58 @@ const Index = () => {
             </button>
           </a>
         </motion.div>
+      </section>
+
+      {/* Properties We Manage Section */}
+      <section className="py-20 bg-background">
+        <div className="w-full px-6 lg:px-12">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="text-center max-w-4xl mx-auto"
+          >
+            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-light italic text-foreground mb-8">
+              Properties We Manage
+            </h2>
+            
+            <Link to="/suites">
+              <button className="btn-gold px-8 py-3 rounded-full text-sm uppercase tracking-wider mb-12">
+                Explore Our Properties
+              </button>
+            </Link>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+              <Link to="/suites" className="group text-center">
+                <h3 className="font-display text-xl md:text-2xl font-semibold text-foreground group-hover:text-gold transition-colors">
+                  Unreal Homes
+                </h3>
+                <p className="text-muted-foreground text-sm uppercase tracking-wider mt-1">
+                  Dar es Salaam
+                </p>
+              </Link>
+              
+              <Link to="/suites" className="group text-center">
+                <h3 className="font-display text-xl md:text-2xl font-medium italic text-foreground group-hover:text-gold transition-colors">
+                  Staycation Villas
+                </h3>
+                <p className="text-muted-foreground text-sm uppercase tracking-wider mt-1">
+                  Dodoma
+                </p>
+              </Link>
+              
+              <Link to="/suites" className="group text-center">
+                <h3 className="font-display text-xl md:text-2xl font-medium text-foreground group-hover:text-gold transition-colors">
+                  Maison Luxe
+                </h3>
+                <p className="text-muted-foreground text-sm uppercase tracking-wider mt-1">
+                  Dodoma
+                </p>
+              </Link>
+            </div>
+          </motion.div>
+        </div>
       </section>
 
       <Footer />

@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { ScrollToTop } from "@/components/ScrollToTop";
-import { Crown, Heart, Award, Users } from "lucide-react";
+import { Crown, Heart, Award, Users, MapPin, Phone, Mail } from "lucide-react";
 
 import aboutImage from "@/assets/suite-dining.jpg";
 import teamImage from "@/assets/suite-living.jpg";
@@ -199,8 +199,89 @@ const About = () => {
         </div>
       </section>
 
+      {/* Contact Section */}
+      <section className="py-24 lg:py-32 bg-secondary/30">
+        <div className="w-full px-6 lg:px-12">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center max-w-4xl mx-auto mb-16"
+          >
+            <p className="text-gold text-sm uppercase tracking-[0.3em] mb-4">
+              Get In Touch
+            </p>
+            <h2 className="font-display text-4xl md:text-5xl font-light text-foreground mb-6">
+              Contact <span className="text-gold">Us</span>
+            </h2>
+            <div className="divider-gold" />
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1, duration: 0.6 }}
+              className="text-center p-8 rounded-2xl bg-card hover:shadow-elegant transition-all duration-500"
+            >
+              <div className="w-16 h-16 rounded-full bg-gold/10 flex items-center justify-center mx-auto mb-6">
+                <MapPin className="w-8 h-8 text-gold" />
+              </div>
+              <h3 className="font-display text-xl text-foreground mb-3">Location</h3>
+              <p className="text-muted-foreground text-sm leading-relaxed">
+                123 Luxury Avenue<br />
+                Dodoma, Tanzania
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2, duration: 0.6 }}
+              className="text-center p-8 rounded-2xl bg-card hover:shadow-elegant transition-all duration-500"
+            >
+              <div className="w-16 h-16 rounded-full bg-gold/10 flex items-center justify-center mx-auto mb-6">
+                <Phone className="w-8 h-8 text-gold" />
+              </div>
+              <h3 className="font-display text-xl text-foreground mb-3">Phone</h3>
+              <p className="text-muted-foreground text-sm leading-relaxed">
+                <a href="tel:+255123456789" className="hover:text-gold transition-colors">
+                  +255 123 456 789
+                </a><br />
+                <a href="tel:+255987654321" className="hover:text-gold transition-colors">
+                  +255 987 654 321
+                </a>
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3, duration: 0.6 }}
+              className="text-center p-8 rounded-2xl bg-card hover:shadow-elegant transition-all duration-500"
+            >
+              <div className="w-16 h-16 rounded-full bg-gold/10 flex items-center justify-center mx-auto mb-6">
+                <Mail className="w-8 h-8 text-gold" />
+              </div>
+              <h3 className="font-display text-xl text-foreground mb-3">Email</h3>
+              <p className="text-muted-foreground text-sm leading-relaxed">
+                <a href="mailto:info@maisonluxe.com" className="hover:text-gold transition-colors">
+                  info@maisonluxe.com
+                </a><br />
+                <a href="mailto:reservations@maisonluxe.com" className="hover:text-gold transition-colors">
+                  reservations@maisonluxe.com
+                </a>
+              </p>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
-      <section className="py-20 bg-secondary/30">
+      <section className="py-20 bg-charcoal">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -208,10 +289,10 @@ const About = () => {
           className="text-center px-6"
         >
           <Crown className="w-12 h-12 text-gold mx-auto mb-6" />
-          <h2 className="font-display text-4xl md:text-5xl font-light text-foreground mb-6">
+          <h2 className="font-display text-4xl md:text-5xl font-light text-cream mb-6">
             Experience <span className="text-gold">Maison Luxe</span>
           </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto mb-8">
+          <p className="text-cream/70 text-lg max-w-2xl mx-auto mb-8">
             We invite you to discover the Maison Luxe difference. 
             Your extraordinary journey begins with a single reservation.
           </p>
