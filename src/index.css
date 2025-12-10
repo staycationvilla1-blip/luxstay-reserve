@@ -4,6 +4,12 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Hide default cursor on desktop for custom cursor */
+@media (pointer: fine) {
+  * {
+    cursor: none !important;
+  }
+}
 @layer base {
   :root {
     /* Maison Luxe Color Palette */
