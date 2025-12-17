@@ -8,12 +8,6 @@ const childRise: Variants = {
 
 const experiences = [
   {
-    icon: Sparkles,
-    title: "Luxury Spa",
-    description: "Indulge in rejuvenating treatments with our expert therapists using premium organic products.",
-    hours: "7:00 AM - 10:00 PM",
-  },
-  {
     icon: Dumbbell,
     title: "Fitness Center",
     description: "State-of-the-art equipment and personal trainers available for your wellness journey.",
@@ -21,8 +15,8 @@ const experiences = [
   },
   {
     icon: Waves,
-    title: "Infinity Pool",
-    description: "Swim with panoramic views in our temperature-controlled rooftop infinity pool.",
+    title: "Swimming Pool",
+    description: "Swim with panoramic views in our temperature-controlled rooftop swimming pool.",
     hours: "6:00 AM - 11:00 PM",
   },
   {
@@ -58,9 +52,6 @@ export const RelaxingExperiences = () => {
             <span className="text-gold">Experiences</span>
           </h2>
           <div className="divider-gold mb-8" />
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Discover a world of tranquility and wellness designed to rejuvenate your body, mind, and spirit.
-          </p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

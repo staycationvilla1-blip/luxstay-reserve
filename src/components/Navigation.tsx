@@ -6,6 +6,8 @@ import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo.png";
 
+const BOOKING_URL = "https://live.ipms247.com/booking/book-rooms-maisonluxeapartments";
+
 // Scroll to top on navigation
 const useScrollToTopOnNavigation = () => {
   const location = useLocation();
@@ -19,9 +21,7 @@ const navItems = [
   { name: "Home", path: "/" },
   { name: "Suites", path: "/suites" },
   { name: "Virtual Tour", path: "/virtual-tour" },
-  { name: "Amenities", path: "/amenities" },
   { name: "About", path: "/about" },
-  { name: "Reserve Now", path: "/reserve" },
 ];
 
 export const Navigation = () => {
@@ -69,7 +69,7 @@ export const Navigation = () => {
 
           {/* Desktop Navigation - Centered */}
           <div className="hidden lg:flex items-center justify-center flex-1 gap-3">
-            {navItems.filter(item => item.name !== "Reserve Now").map((item, index) => (
+            {navItems.map((item, index) => (
               <a key={item.path} href={item.path} onClick={(e) => handleNavClick(e, item.path)}>
                 <motion.div
                   initial={{ opacity: 0, y: -20 }}
@@ -90,7 +90,11 @@ export const Navigation = () => {
           
           {/* Reserve Button - Right Side */}
           <div className="hidden lg:block">
-            <a href="/reserve" onClick={(e) => handleNavClick(e, "/reserve")}>
+            <a 
+              href={BOOKING_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <motion.div
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -132,24 +136,35 @@ export const Navigation = () => {
                   transition={{ delay: index * 0.1 }}
                 >
                   <a href={item.path} onClick={(e) => handleNavClick(e, item.path)}>
-                    {item.name === "Reserve Now" ? (
-                      <Button variant="gold" size="xl">
-                        {item.name}
-                      </Button>
-                    ) : (
-                      <span
-                        className={`text-2xl font-display font-light transition-colors ${
-                          location.pathname === item.path
-                            ? "text-gold"
-                            : "text-foreground hover:text-gold"
-                        }`}
-                      >
-                        {item.name}
-                      </span>
-                    )}
+                    <span
+                      className={`text-2xl font-display font-light transition-colors ${
+                        location.pathname === item.path
+                          ? "text-gold"
+                          : "text-foreground hover:text-gold"
+                      }`}
+                    >
+                      {item.name}
+                    </span>
                   </a>
                 </motion.div>
               ))}
+              
+              {/* Reserve Now button in mobile menu */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: navItems.length * 0.1 }}
+              >
+                <a
+                  href={BOOKING_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Button variant="gold" size="xl">
+                    Reserve Now
+                  </Button>
+                </a>
+              </motion.div>
             </div>
           </motion.div>
         )}

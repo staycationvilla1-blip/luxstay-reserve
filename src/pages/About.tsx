@@ -7,6 +7,8 @@ import { Crown, Heart, Award, Users, MapPin, Phone, Mail } from "lucide-react";
 import aboutImage from "@/assets/suite-dining.jpg";
 import teamImage from "@/assets/suite-living.jpg";
 
+const BOOKING_URL = "https://live.ipms247.com/booking/book-rooms-maisonluxeapartments";
+
 const values = [
   {
     icon: Crown,
@@ -31,10 +33,9 @@ const values = [
 ];
 
 const stats = [
-  { number: "15+", label: "Luxury Suites" },
-  { number: "5000+", label: "Happy Guests" },
+  { number: "26", label: "Luxury Suites" },
+  { number: "200+", label: "Happy Guests" },
   { number: "4.9", label: "Average Rating" },
-  { number: "24/7", label: "Concierge Service" },
 ];
 
 const About = () => {
@@ -131,10 +132,10 @@ const About = () => {
         </div>
       </section>
 
-      {/* Stats */}
+      {/* Stats - CENTERED */}
       <section className="py-20 bg-charcoal">
         <div className="w-full px-6 lg:px-12">
-          <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-12">
             {stats.map((stat, index) => (
               <motion.div
                 key={stat.label}
@@ -290,7 +291,11 @@ const About = () => {
             We invite you to discover the Maison Luxe difference. 
             Your extraordinary journey begins with a single reservation.
           </p>
-          <a href="/reserve">
+          <a 
+            href={BOOKING_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <button className="btn-gold px-10 py-4 rounded-lg">
               Make a Reservation
             </button>

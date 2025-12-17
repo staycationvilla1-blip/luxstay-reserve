@@ -52,17 +52,6 @@ const panoramaRooms: PanoramaRoom[] = [
       { id: "to-bedroom", longitude: -3.14, latitude: 0, label: "Bedroom", description: "Return to master bedroom", linkedRoom: "bedroom" },
     ],
   },
-  {
-    id: "suite",
-    name: "Presidential Suite",
-    panorama: suiteDining,
-    thumbnail: suiteDining,
-    markers: [
-      { id: "balcony", longitude: 0, latitude: 0.3, label: "Private Balcony", description: "Exclusive balcony with stunning panoramic views." },
-      { id: "dining", longitude: 2, latitude: -0.1, label: "Dining Area", description: "Elegant private dining space for intimate gatherings." },
-      { id: "to-living", longitude: 3.14, latitude: 0, label: "Living Room", description: "Return to living room", linkedRoom: "living" },
-    ],
-  },
 ];
 
 interface PanoramaViewerProps {

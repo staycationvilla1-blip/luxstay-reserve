@@ -55,7 +55,6 @@ const VirtualTourPage = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <Eye className="w-16 h-16 text-gold mx-auto mb-6 animate-float" />
               <h1 className="font-display text-5xl lg:text-7xl font-light mb-6">
                 <span className="text-foreground">360° Virtual </span>
                 <span className="text-gold">Tour</span>
@@ -71,7 +70,6 @@ const VirtualTourPage = () => {
                 onClick={() => startTour("bedroom")}
                 className="px-10 py-6 text-lg"
               >
-                <Play className="w-5 h-5 mr-2" />
                 Start Virtual Tour
               </Button>
             </motion.div>

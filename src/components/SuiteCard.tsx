@@ -69,7 +69,7 @@ export const SuiteCard = ({
         rotateY,
         transformStyle: "preserve-3d",
       }}
-      className="group relative bg-card rounded-2xl overflow-hidden cursor-pointer"
+      className="group relative bg-card rounded-2xl overflow-hidden cursor-pointer shadow-soft hover:shadow-elegant transition-shadow duration-500"
     >
       {/* Shine effect */}
       <motion.div
@@ -88,8 +88,8 @@ export const SuiteCard = ({
         }}
       />
 
-      {/* Image */}
-      <div className="relative h-72 overflow-hidden">
+      {/* Image Container */}
+      <div className="relative h-64 sm:h-72 overflow-hidden">
         <motion.img
           src={image}
           alt={title}
@@ -97,45 +97,37 @@ export const SuiteCard = ({
           whileHover={{ scale: 1.08 }}
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-charcoal/70 via-charcoal/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500" />
         
-        {/* Price Badge */}
-        <motion.div 
-          className="absolute top-4 right-4 bg-background/95 backdrop-blur-sm px-4 py-2 rounded-full shadow-elegant"
-          initial={{ opacity: 0, x: 20 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ delay: index * 0.15 + 0.3 }}
-        >
-          <span className="text-sm font-medium text-gold">From {price}</span>
-        </motion.div>
+        {/* Dark Overlay on Hover */}
+        <div className="absolute inset-0 bg-gradient-to-t from-charcoal/80 via-charcoal/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-        {/* View button on hover */}
-        <motion.div
-          className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-          initial={{ y: 20 }}
-          whileHover={{ y: 0 }}
-        >
-          <Link to="/reserve">
-            <Button variant="gold" size="lg" className="shadow-gold-glow">
-              View Suite
-              <ArrowRight size={16} className="ml-2" />
-            </Button>
-          </Link>
-        </motion.div>
+        {/* PRICE OVERLAY - SHOWS ON HOVER */}
+        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-30">
+          <motion.div 
+            className="bg-gold px-6 sm:px-8 py-3 sm:py-4 rounded-full shadow-2xl"
+            initial={{ scale: 0.9, y: 10 }}
+            whileHover={{ scale: 1, y: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            <span className="text-xl sm:text-2xl font-display font-bold text-white tracking-wide">
+              {price}
+            </span>
+          </motion.div>
+        </div>
       </div>
 
-      {/* Content */}
-      <div className="p-6 space-y-4" style={{ transform: "translateZ(20px)" }}>
-        <h3 className="font-display text-2xl text-foreground group-hover:text-gold transition-colors duration-300">
+      {/* Card Content */}
+      <div className="p-5 sm:p-6 space-y-3 sm:space-y-4" style={{ transform: "translateZ(20px)" }}>
+        <h3 className="font-display text-xl sm:text-2xl text-foreground group-hover:text-gold transition-colors duration-300">
           {title}
         </h3>
         
-        <p className="text-muted-foreground leading-relaxed line-clamp-2">
+        <p className="text-muted-foreground text-sm sm:text-base leading-relaxed line-clamp-2">
           {description}
         </p>
 
         {/* Features */}
-        <div className="flex items-center gap-6 text-sm text-muted-foreground">
+        <div className="flex flex-wrap items-center gap-4 sm:gap-6 text-xs sm:text-sm text-muted-foreground pt-2">
           <motion.span 
             className="flex items-center gap-2"
             whileHover={{ scale: 1.05, color: "hsl(var(--gold))" }}
@@ -159,11 +151,11 @@ export const SuiteCard = ({
           </motion.span>
         </div>
 
-        {/* CTA */}
-        <div className="pt-2">
-          <Link to="/reserve">
-            <Button variant="outline" className="group/btn overflow-hidden relative">
-              <span className="relative z-10 flex items-center">
+        {/* CTA Button */}
+        <div className="pt-3 sm:pt-4">
+          <Link to="/suites">
+            <Button variant="outline" className="w-full group/btn overflow-hidden relative">
+              <span className="relative z-10 flex items-center justify-center">
                 View Details
                 <ArrowRight
                   size={16}

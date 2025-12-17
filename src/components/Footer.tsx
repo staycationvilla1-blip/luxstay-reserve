@@ -3,6 +3,8 @@ import { MapPin, Phone, Mail, Instagram, Facebook, Twitter, ArrowUpRight } from 
 import { motion } from "framer-motion";
 import logo from "@/assets/logo.png";
 
+const BOOKING_URL = "https://live.ipms247.com/booking/book-rooms-maisonluxeapartments";
+
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
@@ -55,13 +57,13 @@ export const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand */}
           <motion.div variants={itemVariants} className="space-y-6">
-            <motion.img 
+            {/* <motion.img 
               src={logo} 
               alt="Maison Luxe" 
               className="h-20 w-auto brightness-0 invert opacity-90"
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
-            />
+            /> */}
             <p className="text-cream/70 leading-relaxed">
               Experience unparalleled luxury in the heart of the city. 
               Where elegance meets comfort.
@@ -74,6 +76,8 @@ export const Footer = () => {
                 <motion.a
                   key={i}
                   href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-10 h-10 rounded-full border border-cream/30 flex items-center justify-center hover:border-gold hover:text-gold transition-colors relative overflow-hidden group"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
@@ -109,7 +113,6 @@ export const Footer = () => {
                 { name: "Virtual Tour", path: "/virtual-tour" },
                 { name: "Amenities", path: "/amenities" },
                 { name: "About", path: "/about" },
-                { name: "Reserve Now", path: "/reserve" },
               ].map((item, i) => (
                 <motion.li
                   key={item.name}
@@ -133,6 +136,28 @@ export const Footer = () => {
                   </a>
                 </motion.li>
               ))}
+              {/* Reserve Now as external link */}
+              <motion.li
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ delay: 5 * 0.05 + 0.3 }}
+              >
+                <a
+                  href={BOOKING_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-cream/70 hover:text-gold transition-colors flex items-center group"
+                >
+                  <motion.span
+                    whileHover={{ x: 8 }}
+                    transition={{ duration: 0.2 }}
+                    className="flex items-center"
+                  >
+                    Reserve Now
+                    <ArrowUpRight size={14} className="ml-1 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  </motion.span>
+                </a>
+              </motion.li>
             </ul>
           </motion.div>
 
@@ -183,7 +208,7 @@ export const Footer = () => {
           </motion.div>
 
           {/* Newsletter */}
-          <motion.div variants={itemVariants}>
+          {/* <motion.div variants={itemVariants}>
             <h4 className="font-display text-xl text-cream mb-6 relative inline-block">
               Stay Updated
               <motion.div
@@ -219,7 +244,7 @@ export const Footer = () => {
                 />
               </motion.button>
             </form>
-          </motion.div>
+          </motion.div> */}
         </div>
       </motion.div>
 
@@ -232,10 +257,10 @@ export const Footer = () => {
       >
         <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-cream/50">
           <div className="flex items-center gap-4">
-            <img src={logo} alt="Maison Luxe" className="h-10 w-auto brightness-0 invert opacity-70" />
+            {/* <img src={logo} alt="Maison Luxe" className="h-10 w-auto brightness-0 invert opacity-70" /> */}
             <p>&copy; {new Date().getFullYear()} Maison Luxe. All rights reserved.</p>
           </div>
-          <div className="flex items-center gap-6">
+          {/* <div className="flex items-center gap-6">
             <motion.a 
               href="#" 
               className="hover:text-gold transition-colors"
@@ -250,7 +275,7 @@ export const Footer = () => {
             >
               Terms of Service
             </motion.a>
-          </div>
+          </div> */}
         </div>
       </motion.div>
     </footer>

@@ -27,6 +27,8 @@ import {
   Sparkles,
   Shield,
   Dumbbell,
+  Waves,
+  Wine,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -37,11 +39,13 @@ import suiteKitchen from "@/assets/suite-kitchen.jpg";
 import suiteDining from "@/assets/suite-dining.jpg";
 import suiteCozy from "@/assets/suite-cozy.jpg";
 
+const BOOKING_URL = "https://live.ipms247.com/booking/book-rooms-maisonluxeapartments";
+
 const suites: Suite[] = [
   {
     id: 1,
-    name: "Deluxe King Suite",
-    price: "$180",
+    name: "Deluxe Studio - No Kitchen",
+    price: "$81",
     period: "per night",
     image: suite1,
     bedrooms: 1,
@@ -60,8 +64,8 @@ const suites: Suite[] = [
   },
   {
     id: 2,
-    name: "Premium Queen Suite",
-    price: "$160",
+    name: "Deluxe Studio - With Kitchen",
+    price: "$81",
     period: "per night",
     image: suite2,
     bedrooms: 1,
@@ -80,32 +84,30 @@ const suites: Suite[] = [
   },
   {
     id: 3,
-    name: "Royal Living Suite",
-    price: "$280",
+    name: "Single Bedroom Suite - No Dinning Room",
+    price: "$101",
     period: "per night",
     image: suiteLiving,
-    bedrooms: 2,
-    bathrooms: 2,
+    bedrooms: 1,
+    bathrooms: 1,
     area: "75 m²",
     description:
       "Experience refined luxury in our signature suite with a separate living area, designer forest-green accents, and panoramic city views.",
     features: [
       "Separate Living Area",
       "Premium Furnishings",
-      "Smart Home Controls",
       "Private Balcony",
-      "Concierge Service",
-      "Spa Bathroom",
+      "Premium Bathroom",
     ],
   },
   {
     id: 4,
-    name: "Executive Suite",
-    price: "$320",
+    name: "Single Bedroom Suite - With Dinning Room",
+    price: "$121",
     period: "per night",
     image: suiteKitchen,
-    bedrooms: 2,
-    bathrooms: 2,
+    bedrooms: 1,
+    bathrooms: 1,
     area: "85 m²",
     description:
       "A home away from home with a fully equipped modern kitchen, premium appliances, and generous living space for extended stays.",
@@ -118,55 +120,19 @@ const suites: Suite[] = [
       "Gym Access",
     ],
   },
-  {
-    id: 5,
-    name: "Presidential Suite",
-    price: "$450",
-    period: "per night",
-    image: suiteDining,
-    bedrooms: 3,
-    bathrooms: 3,
-    area: "120 m²",
-    description:
-      "The pinnacle of luxury living with private dining area, sophisticated interiors, and bespoke services tailored to your every need.",
-    features: [
-      "Private Dining Room",
-      "Butler Service",
-      "Premium Bar",
-      "Meeting Room",
-      "VIP Check-in",
-      "Airport Transfer",
-    ],
-  },
-  {
-    id: 6,
-    name: "Garden View Suite",
-    price: "$200",
-    period: "per night",
-    image: suiteCozy,
-    bedrooms: 1,
-    bathrooms: 1,
-    area: "55 m²",
-    description:
-      "A cozy retreat with warm wooden tones, contemporary design elements, and serene garden views for a peaceful escape.",
-    features: [
-      "Garden Views",
-      "Private Terrace",
-      "Rainfall Shower",
-      "Organic Amenities",
-      "Yoga Mat",
-      "Meditation Space",
-    ],
-  },
 ];
 
+// ✅ CENTERED AMENITIES WITH WHITE BOX HOLDERS
 const amenities = [
   { icon: Wifi, label: "High-Speed WiFi" },
   { icon: Car, label: "Free Parking" },
   { icon: Coffee, label: "Premium Coffee" },
-  { icon: Utensils, label: "Full Kitchen" },
+  { icon: Utensils, label: "Kitchenette" },
   { icon: Tv, label: "Smart TV" },
   { icon: Shield, label: "24/7 Security" },
+  { icon: Dumbbell, label: "Fitness Center" },
+  { icon: Waves, label: "Swimming Pool" },
+  { icon: Wine, label: "Executive Lounge" },
 ];
 
 const Suites = () => {
@@ -253,24 +219,45 @@ const Suites = () => {
         </div>
       </motion.section>
 
-      {/* ===== AMENITIES RIBBON ===== */}
+      {/* ===== CENTERED AMENITIES WITH WHITE BOXES ===== */}
       <motion.section
         ref={ribbonRef}
         initial="hidden"
         animate={ribbonCtrls}
         variants={staggerContainer}
-        className="bg-secondary/50 py-10 border-y border-border"
+        className="py-8 bg-secondary/20 border-y border-border/30"
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-            {amenities.map(({ icon: Icon, label }) => (
+          {/* Desktop: Centered Horizontal Row with White Box Holders */}
+          <div className="hidden lg:flex items-center justify-center gap-4 flex-wrap">
+            {amenities.map(({ icon: Icon, label }, index) => (
               <motion.div
                 key={label}
                 variants={fadeInUp}
-                className="flex items-center gap-3 bg-background rounded-xl p-4 shadow-soft border border-border/50"
+                transition={{ delay: index * 0.05 }}
+                className="flex items-center gap-3 px-5 py-3 bg-white rounded-xl shadow-sm border border-border/50 hover:shadow-md hover:border-gold/30 transition-all group"
               >
-                <Icon className="w-5 h-5 text-gold" />
-                <p className="font-medium text-foreground text-sm">{label}</p>
+                <Icon className="w-5 h-5 text-gold flex-shrink-0" />
+                <span className="text-sm font-medium text-foreground whitespace-nowrap">
+                  {label}
+                </span>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Tablet & Mobile: Centered Grid with White Box Holders */}
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-3 lg:hidden">
+            {amenities.map(({ icon: Icon, label }, index) => (
+              <motion.div
+                key={label}
+                variants={fadeInUp}
+                transition={{ delay: index * 0.05 }}
+                className="flex items-center gap-2.5 px-4 py-3 bg-white rounded-xl shadow-sm border border-border/50 hover:shadow-md hover:border-gold/30 transition-all group"
+              >
+                <Icon className="w-4 h-4 text-gold flex-shrink-0" />
+                <span className="text-xs font-medium text-foreground">
+                  {label}
+                </span>
               </motion.div>
             ))}
           </div>
@@ -380,7 +367,6 @@ const Suites = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <Crown className="w-12 h-12 text-gold mx-auto mb-6" />
             <p className="text-gold text-sm uppercase tracking-[0.3em] mb-4">
               Exclusive Offer
             </p>
@@ -392,9 +378,13 @@ const Suites = () => {
               Book 7 nights or more and enjoy 20% off your entire stay. 
               Experience the full Maison Luxe lifestyle with our extended stay package.
             </p>
-            <a href="/reserve">
+            <a 
+              href={BOOKING_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Button variant="gold" size="xl">
-                Book Extended Stay
+                Check Availability
               </Button>
             </a>
           </motion.div>

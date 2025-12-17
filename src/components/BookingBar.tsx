@@ -2,10 +2,10 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Calendar, Users, Search, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useNavigate } from "react-router-dom";
+
+const BOOKING_URL = "https://live.ipms247.com/booking/book-rooms-maisonluxeapartments";
 
 export const BookingBar = () => {
-  const navigate = useNavigate();
   const [checkIn, setCheckIn] = useState("");
   const [checkOut, setCheckOut] = useState("");
   const [guests, setGuests] = useState("2");
@@ -17,9 +17,8 @@ export const BookingBar = () => {
     setIsSearching(true);
     
     setTimeout(() => {
-      navigate("/reserve", {
-        state: { checkIn, checkOut, guests },
-      });
+      window.open(BOOKING_URL, '_blank', 'noopener,noreferrer');
+      setIsSearching(false);
     }, 600);
   };
 

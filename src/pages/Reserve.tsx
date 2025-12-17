@@ -255,8 +255,7 @@ const Reserve = () => {
                       <option value="premium-queen">Premium Queen Suite - $160/night</option>
                       <option value="royal-living">Royal Living Suite - $280/night</option>
                       <option value="executive">Executive Suite - $320/night</option>
-                      <option value="presidential">Presidential Suite - $450/night</option>
-                      <option value="garden-view">Garden View Suite - $200/night</option>
+
                     </select>
                   </div>
                 </div>

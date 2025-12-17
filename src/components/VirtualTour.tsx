@@ -53,7 +53,7 @@ const rooms: Room[] = [
     name: "Dining Area",
     image: suite3,
     hotspots: [
-      { id: "table", x: 50, y: 55, label: "Dining Table", description: "Elegant mahogany dining table seating up to 6 guests." },
+      { id: "table", x: 50, y: 55, label: "Dining Table", description: "Elegant mahogany dining table seating up to 2 guests." },
       { id: "chandelier", x: 50, y: 20, label: "Crystal Chandelier", description: "Hand-crafted Swarovski crystal chandelier." },
       { id: "to-kitchen", x: 80, y: 50, label: "Kitchen", description: "Continue to the kitchen", linkedRoom: "kitchen" },
       { id: "to-living", x: 15, y: 50, label: "Living Room", description: "Return to living area", linkedRoom: "living" },

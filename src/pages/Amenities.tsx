@@ -71,7 +71,6 @@ const Amenities = () => {
 
           <div className="relative max-w-7xl mx-auto px-6 lg:px-8 text-center">
             <motion.div variants={childRise} className="mb-6">
-              <Crown className="w-16 h-16 text-gold mx-auto mb-6 animate-float" />
             </motion.div>
 
             <motion.h1
@@ -93,7 +92,7 @@ const Amenities = () => {
         </motion.section>
 
         {/* Restaurant Menu */}
-        <motion.section
+        {/* <motion.section
           ref={menuRef}
           initial="hidden"
           animate={menuCtrls}
@@ -101,7 +100,7 @@ const Amenities = () => {
           className="relative"
         >
           <RestaurantMenu />
-        </motion.section>
+        </motion.section> */}
 
         {/* Relaxing Experiences */}
         <motion.section
