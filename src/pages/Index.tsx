@@ -20,7 +20,7 @@ const suites = [
     image: suite1,
     title: "Deluxe Studio",
     description: "A spacious haven featuring elegant wooden furnishings, plush bedding, and modern amenities for the discerning traveler.",
-    price: "$81",
+    price: "200,000 TZS",
     guests: 2,
     size: "45 m²",
   },
@@ -28,7 +28,7 @@ const suites = [
     image: suite2,
     title: "One Bedroom Suite - No Dining Room",
     description: "Experience refined luxury in our signature suite with a separate living area, designer interiors, and panoramic city views.",
-    price: "$101",
+    price: "200,000 TZS",
     guests: 2,
     size: "75 m²",
   },
@@ -36,7 +36,7 @@ const suites = [
     image: suite3,
     title: "1 Bedroom Suite - With Dining Room",
     description: "The pinnacle of luxury living with private dining, full kitchen, and bespoke services tailored to your every need.",
-    price: "$121",
+    price: "250,000 TZS",
     guests: 2,
     size: "120 m²",
   },
@@ -315,39 +315,54 @@ const Index = () => {
               Properties We Manage
             </h2>
             
-            <Link to="/suites">
+            <a 
+              href="https://whistlingwoods.co.tz/" 
+              rel="noopener noreferrer"
+            >
               <button className="btn-gold px-6 sm:px-8 py-2.5 sm:py-3 rounded-full text-xs sm:text-sm uppercase tracking-wider mb-10 sm:mb-12 hover:scale-105 transition-transform">
                 Explore Our Properties
               </button>
-            </Link>
+            </a>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-4xl mx-auto px-4">
-              <Link to="/suites" className="group text-center p-4 sm:p-0 hover:bg-background/50 rounded-xl transition-colors">
+              <a 
+                href="https://unrealhomesco.tz/" 
+                rel="noopener noreferrer"
+                className="group text-center p-4 sm:p-0 hover:bg-background/50 rounded-xl transition-colors"
+              >
                 <h3 className="font-display text-lg sm:text-xl md:text-2xl font-semibold text-foreground group-hover:text-gold transition-colors">
                   Unreal Homes
                 </h3>
                 <p className="text-muted-foreground text-xs sm:text-sm uppercase tracking-wider mt-1">
                   Dar es Salaam
                 </p>
-              </Link>
+              </a>
               
-              <Link to="/suites" className="group text-center p-4 sm:p-0 hover:bg-background/50 rounded-xl transition-colors">
+              <a 
+                href="https://staycationvilla.co.tz" 
+                rel="noopener noreferrer"
+                className="group text-center p-4 sm:p-0 hover:bg-background/50 rounded-xl transition-colors"
+              >
                 <h3 className="font-display text-lg sm:text-xl md:text-2xl font-medium italic text-foreground group-hover:text-gold transition-colors">
                   Staycation Villas
                 </h3>
                 <p className="text-muted-foreground text-xs sm:text-sm uppercase tracking-wider mt-1">
                   Dodoma
                 </p>
-              </Link>
+              </a>
               
-              <Link to="/suites" className="group text-center p-4 sm:p-0 hover:bg-background/50 rounded-xl transition-colors sm:col-span-2 lg:col-span-1">
+              <a 
+                href="https://maisonluxe.co.tz/" 
+                rel="noopener noreferrer"
+                className="group text-center p-4 sm:p-0 hover:bg-background/50 rounded-xl transition-colors sm:col-span-2 lg:col-span-1"
+              >
                 <h3 className="font-display text-lg sm:text-xl md:text-2xl font-medium text-foreground group-hover:text-gold transition-colors">
                   Maison Luxe
                 </h3>
                 <p className="text-muted-foreground text-xs sm:text-sm uppercase tracking-wider mt-1">
                   Dodoma
                 </p>
-              </Link>
+              </a>
             </div>
           </motion.div>
         </div>

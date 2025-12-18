@@ -38,6 +38,10 @@ import suiteLiving from "@/assets/suite-living.jpg";
 import suiteKitchen from "@/assets/suite-kitchen.jpg";
 import suiteDining from "@/assets/suite-dining.jpg";
 import suiteCozy from "@/assets/suite-cozy.jpg";
+import livingKitchen from "@/assets/living-kitchen.jpg";
+import diningArea from "@/assets/dining-area.jpg";
+import exteriorView from "@/assets/exterior-1.jpg";
+import exteriorView2 from "@/assets/exterior-2.jpg";
 
 const BOOKING_URL = "https://live.ipms247.com/booking/book-rooms-maisonluxeapartments";
 
@@ -45,77 +49,77 @@ const suites: Suite[] = [
   {
     id: 1,
     name: "Deluxe Studio - No Kitchen",
-    price: "$81",
+    price: "200,000 TZS",
     period: "per night",
     image: suite1,
     bedrooms: 1,
     bathrooms: 1,
     area: "45 m²",
     description:
-      "A spacious haven featuring elegant wooden furnishings, plush king-size bedding, and modern amenities for the discerning traveler seeking comfort and style.",
+      "A spacious haven featuring elegant furnishings, plush king-size bedding, and modern amenities for the discerning traveler seeking comfort and style.",
     features: [
       "Free High-Speed Wi-Fi",
       "Premium King Bed",
       "Smart TV",
-      "Mini Bar",
       "Room Service",
       "Luxury Bathroom",
+      "Gym Access"
     ],
   },
   {
     id: 2,
     name: "Deluxe Studio - With Kitchen",
-    price: "$81",
+    price: "200,000 TZS",
     period: "per night",
     image: suite2,
     bedrooms: 1,
     bathrooms: 1,
-    area: "40 m²",
+    area: "50 m²",
     description:
-      "Elegantly appointed with premium bedding, ambient lighting, and thoughtful touches that create a serene retreat in the heart of the city.",
+      "Elegantly appointed studio with a fully equipped modern kitchen, premium bedding, and thoughtful touches that create a serene home away from home.",
     features: [
       "Free High-Speed Wi-Fi",
       "Queen Bed",
       "Smart TV",
-      "Work Desk",
+      "Full Kitchen",
       "Coffee Maker",
-      "City Views",
+      "Gym Access"
     ],
   },
   {
     id: 3,
-    name: "Single Bedroom Suite - No Dinning Room",
-    price: "$101",
+    name: "Single Bedroom Suite - No Dining Room",
+    price: "250,000 TZS",
     period: "per night",
-    image: suiteLiving,
+    image: livingKitchen,
     bedrooms: 1,
     bathrooms: 1,
-    area: "75 m²",
+    area: "65 m²",
     description:
-      "Experience refined luxury in our signature suite with a separate living area, designer forest-green accents, and panoramic city views.",
+      "Experience refined luxury in our signature suite with a separate living area, premium furnishings, and sophisticated design elements.",
     features: [
       "Separate Living Area",
       "Premium Furnishings",
       "Private Balcony",
       "Premium Bathroom",
+      "Gym Access"
     ],
   },
   {
     id: 4,
-    name: "Single Bedroom Suite - With Dinning Room",
-    price: "$121",
+    name: "Single Bedroom Suite - With Dining Room",
+    price: "300,000 TZS",
     period: "per night",
-    image: suiteKitchen,
+    image: suiteLiving,
     bedrooms: 1,
     bathrooms: 1,
     area: "85 m²",
     description:
-      "A home away from home with a fully equipped modern kitchen, premium appliances, and generous living space for extended stays.",
+      "Spacious suite featuring a luxurious living area with elegant dining space, perfect for entertaining and extended stays with generous room to relax.",
     features: [
-      "Full Kitchen",
+      "Living & Dining Area",
+      "Premium Furnishings",
       "Washer & Dryer",
-      "Dining Area",
-      "Walk-in Closet",
       "24/7 Security",
       "Gym Access",
     ],
@@ -162,7 +166,7 @@ const Suites = () => {
       >
         {/* Background */}
         <img
-          src={suiteLiving}
+          src={exteriorView}
           alt="Maison Luxe Suites"
           className="absolute inset-0 w-full h-full object-cover"
         />
@@ -199,7 +203,7 @@ const Suites = () => {
             <motion.div variants={slideInFromRight} className="lg:col-span-5">
               <div className="relative rounded-3xl overflow-hidden shadow-luxury ring-1 ring-cream/10">
                 <img
-                  src={suite1}
+                  src={livingKitchen}
                   alt="Interior preview"
                   className="w-full h-[380px] object-cover"
                 />
@@ -375,7 +379,7 @@ const Suites = () => {
             </h2>
             <div className="w-20 h-px bg-gold mx-auto mb-8" />
             <p className="text-cream/70 text-lg mb-8">
-              Book 7 nights or more and enjoy 20% off your entire stay. 
+              Book 7 nights or more and enjoy 10% off your entire stay. 
               Experience the full Maison Luxe lifestyle with our extended stay package.
             </p>
             <a 

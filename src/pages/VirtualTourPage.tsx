@@ -193,9 +193,16 @@ const VirtualTourPage = () => {
             <p className="text-cream/70 text-lg max-w-2xl mx-auto mb-8">
               After exploring our virtual tour, book your stay and experience these spaces in person.
             </p>
-            <ShimmerButton to="/reserve" variant="gold" size="xl">
-              Reserve Your Suite
-            </ShimmerButton>
+
+              <ShimmerButton 
+                variant="gold" 
+                size="xl"
+                onClick={() => window.open('https://live.ipms247.com/booking/book-rooms-maisonluxeapartments', '_blank', 'noopener,noreferrer')}
+                className="text-sm sm:text-base px-6 sm:px-8 md:px-10 py-3 sm:py-4"
+              >
+                Reserve Your Suite
+              </ShimmerButton>
+
           </motion.div>
         </section>
       </main>

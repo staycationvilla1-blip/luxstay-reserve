@@ -83,9 +83,7 @@ const About = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <p className="text-gold text-sm uppercase tracking-[0.3em] mb-4">
-                Est. 2020
-              </p>
+
               <h2 className="font-display text-4xl md:text-5xl font-light text-foreground mb-6">
                 The Art of <span className="text-gold">Refined Living</span>
               </h2>

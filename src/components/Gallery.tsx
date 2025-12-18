@@ -9,14 +9,24 @@ import suiteKitchen from "@/assets/suite-kitchen.jpg";
 import suiteDining from "@/assets/suite-dining.jpg";
 import suiteCozy from "@/assets/suite-cozy.jpg";
 import heroLiving from "@/assets/hero-living.jpg";
+import exteriorView from "@/assets/exterior-1.jpg";
+import exteriorView2 from "@/assets/exterior-2.jpg";
+import livingKitchen from "@/assets/living-kitchen.jpg";
+import diningArea from "@/assets/dining-area.jpg";
+import executiveBar from "@/assets/executive-bar.jpg";
 
 const galleryImages = [
-  { src: heroLiving, alt: "Luxurious Living Space", category: "Living" },
+  { src: exteriorView, alt: "Maison Luxe Building Exterior", category: "Exterior" },
   { src: suite1, alt: "Deluxe King Bedroom", category: "Bedroom" },
+  { src: livingKitchen, alt: "Modern Living & Kitchen Space", category: "Living" },
+  { src: diningArea, alt: "Elegant Living & Dining Space", category: "Living" },
+  { src: executiveBar, alt: "Executive Bar & Lounge", category: "Lounge" },
   { src: suite2, alt: "Premium Queen Suite", category: "Bedroom" },
   { src: suiteLiving, alt: "Royal Living Suite", category: "Living" },
+  { src: exteriorView2, alt: "Building Architecture", category: "Exterior" },
   { src: suiteKitchen, alt: "Modern Kitchen", category: "Kitchen" },
-  { src: suiteDining, alt: "Elegant Dining Area", category: "Dining" },
+  { src: suiteDining, alt: "Suite Dining Space", category: "Dining" },
+  { src: heroLiving, alt: "Luxurious Living Space", category: "Living" },
   { src: suiteCozy, alt: "Cozy Interior Details", category: "Details" },
 ];
 

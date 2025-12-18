@@ -251,10 +251,10 @@ const Reserve = () => {
                       className="w-full bg-background border border-border rounded-lg px-4 py-3 text-foreground focus:outline-none focus:border-gold transition-colors cursor-pointer"
                     >
                       <option value="">Select a suite</option>
-                      <option value="deluxe-king">Deluxe King Suite - $180/night</option>
-                      <option value="premium-queen">Premium Queen Suite - $160/night</option>
-                      <option value="royal-living">Royal Living Suite - $280/night</option>
-                      <option value="executive">Executive Suite - $320/night</option>
+                      <option value="deluxe-king">Deluxe Studio (No Kitchen) - 200,000 TZS/night</option>
+                      <option value="premium-queen">Deluxe Studio (With Kitchen) - 200,000 TZS/night</option>
+                      <option value="royal-living">Single Bedroom Suite (No Dinning Room) - 250,000 TZS/night</option>
+                      <option value="executive">Single Bedroom Suite (With Dinning Room) - 300,000 TZS/night</option>
 
                     </select>
                   </div>

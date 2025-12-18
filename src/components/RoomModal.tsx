@@ -36,8 +36,9 @@ export const RoomModal = ({ room, onClose }: RoomModalProps) => {
   }, [onClose]);
 
   const handleBookNow = () => {
+    // Open external booking link in new tab
+    window.open("https://live.ipms247.com/booking/book-rooms-maisonluxeapartments", "_blank");
     onClose();
-    navigate("/reserve", { state: { suiteType: room.name } });
   };
 
   return (
